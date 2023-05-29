@@ -15,8 +15,16 @@ function App() {
   const [isImagePopupOpen, setImagePopupOpen] = useState(false)
   const [cards, setCards] = useState([])
   const [user, setCurrentUser] = useState([])
-  const [selectedCard, setSelectedCard] = useState({});
+  const [selectedCard, setSelectedCard] = useState(null);
 
+  useEffect(() => {
+    Promise.all([api.getProfile(), api.getCard()])
+    .then(([user, cards]) => {
+      setCurrentUser(user)
+      setCards(cards)
+    })
+    .catch((err) => console.log(err))
+  },[])
 
   const handleEditAvatarClick = () => {
     setAvatarPopupOpen(true)
@@ -41,17 +49,9 @@ function App() {
     setProfilePopupOpen(false)
     setAddCardPopupOpen(false)
     setImagePopupOpen(false)
-    setSelectedCard({})
+    setSelectedCard(null)
   }
 
-  useEffect(() => {
-    Promise.all([api.getProfile(), api.getCard()])
-    .then(([user, cards]) => {
-      setCurrentUser(user)
-      setCards(cards)
-    })
-    .catch((err) => console.log(err))
-  },[])
 
   return (
     <div>
@@ -137,20 +137,6 @@ function App() {
             </form>
           </div>
         </div>
-
-        {/* <template id="card-template">
-          <li className="card">
-            <button className="card__del" type="button" aria-label="Удалить" />
-            <img className="card__img" src="#" alt="#" />
-            <h2 id="place-name" className="card__text" />
-            <div>
-              <button id="like" className="card__like" type="button" aria-label="Нравится" data-path="template">
-              </button>
-              <p className="card__like-counter" />
-            </div>
-          </li>
-        </template> */}
-
       </div>
   );
 }

@@ -1,4 +1,3 @@
-import avatar from '../images/avatar.svg'
 import Card from './Card.js'
 
 function Main({

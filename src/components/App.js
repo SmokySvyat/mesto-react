@@ -32,6 +32,7 @@ function App() {
 
   const handleCardClick = (card)=>{
     setSelectedCard(card);
+    console.log(card)
     setImagePopupOpen(true)
   }
 

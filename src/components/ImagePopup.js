@@ -1,6 +1,6 @@
 
 
-function PicturePopup ({card, isOpen, onClose}) {
+function ImagePopup ({card, isOpen, onClose}) {
   const className = `popup popup-image ${isOpen? 'popup_active' : ''}`
   return((
     <div id="popup-img" className={className}>
@@ -13,4 +13,4 @@ function PicturePopup ({card, isOpen, onClose}) {
   ))
 }
 
-export default PicturePopup;
+export default ImagePopup;

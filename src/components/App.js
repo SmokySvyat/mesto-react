@@ -118,24 +118,6 @@ function App() {
         isOpen = {isImagePopupOpen}
         onClose = {closeAllPopups}
         />
-
-        <div id="popup-img" className="popup popup-image">
-          <div className="popup__image-container">
-            <button className="popup__close" type="button" aria-label="Закрыть картинку" />
-            <img className="popup__image" src="#" alt="#" />
-            <h2 className="popup__heading" />            
-          </div>
-        </div>
-
-        <div id="popup-confirm-delete" className="popup">
-          <div className="popup__container">
-            <form name="form-confirm-delete" className="popup-form">
-              <button className="popup__close" type="button" aria-label="Закрыть картинку" />
-              <h2 className="popup-form__heading popup-form__confirm-heading">Вы уверены?</h2>
-              <input className="popup-form__btn" type="submit" defaultValue="Да" />
-            </form>
-          </div>
-        </div>
       </div>
   );
 }

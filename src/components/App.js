@@ -6,7 +6,7 @@ import Header from '../components/Header.js';
 import Main from '../components/Main.js';
 import Footer from '../components/Footer.js';
 import PopupWithForm from './PopupWithForm.js';
-import PicturePopup from './ImagePopup.js';
+import ImagePopup from './ImagePopup.js';
 
 function App() {
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false)
@@ -113,7 +113,7 @@ function App() {
           </div>
         </PopupWithForm>
 
-        <PicturePopup
+        <ImagePopup
         card = {selectedCard}
         isOpen = {isImagePopupOpen}
         onClose = {closeAllPopups}

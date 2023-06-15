@@ -27,12 +27,12 @@ class Api {
       .then(res => this._isResultOk(res))
     };
 
-    setUserAvatar({link}) {
+    setUserAvatar({avatar}) {
       return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
-          avatar: link
+          avatar: avatar
         })
       })
       .then(res => this._isResultOk(res))
@@ -48,7 +48,10 @@ class Api {
       return fetch(`${this._baseUrl}cards`, {
         method: 'POST',
         headers: this._headers,
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          name: data.place,
+          link: data.link
+        })
       })
       .then(res => this._isResultOk(res))
     };
